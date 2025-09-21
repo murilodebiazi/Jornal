@@ -9,9 +9,11 @@
 <body>
 
     <div class="cabecalho">
-        <h1>Isto é um cabeçalho</h1>
+        <img src="https://www.infoescola.com/wp-content/uploads/2013/08/sol.jpg">
+        <h1>Jornal do Amanhã</h1>
     </div>
-
+    <br>
+    <br>
     <div id="m">
         <p><?php
     // Set the current working directory
@@ -30,13 +32,14 @@
 
       $fs = fopen("noticias/$nome","r") or die("Unable to open file!"); // abre o aquivo no modo leitura
       echo "<div class='noticia'>";
+      echo "<br>";
       while (!feof($fs)){
         if($contador == 0){
             $link = fgets($fs,500);
             $linha = fgets($fs,500);
             $imagem = fgets($fs,500);
-            echo "<a class='titulo' href='$link'>$linha</a>";
-            echo "<img class='demo' src='$imagem'>";
+            echo "<a href='$link'> <img class='demo' src='$imagem'></a>";
+            echo "<a class='titulo' href='$link'><b>$linha</b></a>";
             echo "<br> <br>";
         }
           $linha = fgets($fs,500);
@@ -48,6 +51,7 @@
       echo "<br>";
       echo "</div>";
       fclose($fs); //fechar arquivo
+      echo "<br>";
     } 
     ?></p>
     </div>
